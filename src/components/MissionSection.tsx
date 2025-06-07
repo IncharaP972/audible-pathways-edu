@@ -77,13 +77,7 @@ const MissionSection = () => {
             >
               Explore Courses
             </a>
-            <a
-              href="/ai-navigation"
-              className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50"
-              aria-label="Try voice navigation assistant"
-            >
-              Try Voice Assistant
-            </a>
+            
           </div>
         </div>
       </div>

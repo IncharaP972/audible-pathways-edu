@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from 'react';
 import { Menu, X, Home, Book, Users, Code, Activity, MessageSquare, Gamepad2, Navigation as NavigationIcon } from 'lucide-react';
 
@@ -13,14 +12,12 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const navigationItems = [
-    { href: '/', label: 'Home', icon: Home, description: 'Return to homepage' },
-    { href: '/pronunciation', label: 'Pronunciation Guide', icon: Book, description: 'Learn pronunciation with audio examples' },
-    { href: '/courses', label: 'Courses', icon: Users, description: 'Access educational courses' },
-    { href: '/code-voice', label: 'Code with Voice', icon: Code, description: 'Voice-controlled coding practice' },
-    { href: '/physical-ed', label: 'Physical Education', icon: Activity, description: 'Accessible exercise and wellness' },
-    { href: '/chatbot', label: 'AI Assistant', icon: MessageSquare, description: 'Get help from AI chatbot' },
-    { href: '/games', label: 'Brain Games', icon: Gamepad2, description: 'Play accessible educational games' },
-    { href: '/ai-navigation', label: 'Voice Navigation', icon: NavigationIcon, description: 'Voice-powered site navigation' }
+    { name: 'Home', href: '/', icon: Home },
+    { name: 'Interactive Courses', href: '/courses', icon: Book },
+    { name: 'Code with Voice', href: '/code-voice', icon: Code },
+    { name: 'Physical Education', href: '/physical-ed', icon: Activity },
+    { name: 'AI Assistant', href: '/chatbot', icon: MessageSquare },
+    { name: 'Brain Games', href: '/games', icon: Gamepad2 }
   ];
 
   // Handle keyboard navigation
@@ -78,10 +75,10 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
                   key={item.href}
                   href={item.href}
                   className="text-gray-700 hover:bg-blue-100 hover:text-blue-900 px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                  aria-label={item.description}
+                  aria-label={`Go to ${item.name}`}
                 >
                   <item.icon className="inline w-4 h-4 mr-1" aria-hidden="true" />
-                  {item.label}
+                  {item.name}
                 </a>
               ))}
             </div>
@@ -125,11 +122,11 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
                   focusedIndex === index ? 'bg-blue-100 text-blue-900' : ''
                 }`}
                 role="menuitem"
-                aria-label={item.description}
+                aria-label={`Go to ${item.name}`}
                 tabIndex={focusedIndex === index ? 0 : -1}
               >
                 <item.icon className="inline w-5 h-5 mr-2" aria-hidden="true" />
-                {item.label}
+                {item.name}
               </a>
             ))}
           </div>
